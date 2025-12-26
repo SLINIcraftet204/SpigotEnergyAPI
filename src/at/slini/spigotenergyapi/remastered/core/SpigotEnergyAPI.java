@@ -7,7 +7,6 @@ import at.slini.spigotenergyapi.remastered.core.Commands.GetCustomBlockData;
 import at.slini.spigotenergyapi.remastered.core.Listeners.BlockListener;
 import at.slini.spigotenergyapi.remastered.core.Utils.ConfigUtil;
 import at.slini.spigotenergyapi.remastered.core.Utils.EnergyBlockUpdate;
-import at.slini.spigotenergyapi.remastered.core.Utils.PlayerActionBar;
 import at.slini.spigotenergyapi.remastered.core.Utils.SConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -42,10 +41,6 @@ public final class SpigotEnergyAPI extends JavaPlugin {
         prefix = config.getString("prefix");
 
         Bukkit.getPluginManager().registerEvents(new BlockListener(), this);
-        
-        if (config.getBoolean("energyshowinactionbar")) {
-            PlayerActionBar.start();
-        }
 
         BlockWrapperInstance.setWrapper(new BlockWrapperManager());
 
