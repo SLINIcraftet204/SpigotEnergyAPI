@@ -1,0 +1,11 @@
+name: SpigotEnergyAPI
+version: '1.0.0'
+main: at.slini.spigotenergyapi.remastered.core.SpigotEnergyAPI
+authors: [
+- SLINIcraftet204
+- TamashiiMon
+]
+api-version: '1.21'
+commands:
+  getcustomblockdata:
+
