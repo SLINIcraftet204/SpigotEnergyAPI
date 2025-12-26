@@ -9,22 +9,27 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockExplodeEvent;
 import org.bukkit.event.block.BlockPhysicsEvent;
+import org.bukkit.event.block.BlockPistonExtendEvent;
 import org.bukkit.persistence.PersistentDataContainer;
 
 public class BlockListener implements Listener {
 
     @EventHandler
-    public void onBlockBreak(BlockBreakEvent event) {
-        removeAllData(event.getBlock());
+    public void BlockBreakListener(BlockBreakEvent event) {
+        Block block = event.getBlock();
+        removeAllData(block);
+    }
+
+    //TODO: Piston move event.
+
+    @EventHandler
+    public void BlockExplodeEvent(BlockExplodeEvent event) {
+        Block block = event.getBlock();
+        removeAllData(block);
     }
 
     @EventHandler
-    public void onBlockExplode(BlockExplodeEvent event) {
-        removeAllData(event.getBlock());
-    }
-
-    @EventHandler
-    public void onBlockPhysics(BlockPhysicsEvent event) {
+    public void BlockupdateEvent(BlockPhysicsEvent event) {
         Block block = event.getBlock();
         if (block.getType().isAir()) {
             removeAllData(block);

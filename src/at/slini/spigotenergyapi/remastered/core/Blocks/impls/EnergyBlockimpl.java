@@ -1,8 +1,9 @@
 package at.slini.spigotenergyapi.remastered.core.Blocks.impls;
 
+import at.slini.spigotenergyapi.remastered.api.BlockWrapperInstance;
 import at.slini.spigotenergyapi.remastered.api.Emuns.EnergyBlockTypes;
 import at.slini.spigotenergyapi.remastered.api.Interfaces.EnergyBlock;
-import at.slini.spigotenergyapi.remastered.core.Managers.EnergyStorageService;
+import at.slini.spigotenergyapi.remastered.core.Managers.EnergyProvider;
 import org.bukkit.*;
 import org.bukkit.block.*;
 import org.bukkit.block.data.BlockData;
@@ -299,57 +300,57 @@ public class EnergyBlockimpl implements EnergyBlock{
 
     @Override
     public double getStoredEnergyForBlock() {
-        return EnergyStorageService.getStoredEnergy(this);
+        return EnergyProvider.getStoredEnergyForBlock(BlockWrapperInstance.getWrapper().wrapEnergyBlock(block));
     }
 
     @Override
     public void setStoredEnergyForBlock(double setstoredEnergy) {
-        EnergyStorageService.setStoredEnergy(this, setstoredEnergy);
+        EnergyProvider.setStoredEnergyForBlock(BlockWrapperInstance.getWrapper().wrapEnergyBlock(block), setstoredEnergy);
     }
 
     @Override
     public void addStoredEnergyForBlock(double addstoredEnergy) {
-        EnergyStorageService.addStoredEnergy(this, addstoredEnergy);
+        EnergyProvider.addStoredEnergyForBlock(BlockWrapperInstance.getWrapper().wrapEnergyBlock(block), addstoredEnergy);
     }
 
     @Override
     public void removeStoredEnergyForBlock(double removestoredEnergy) {
-        EnergyStorageService.removeStoredEnergy(this, removestoredEnergy);
+        EnergyProvider.removeStoredEnergyForBlock(BlockWrapperInstance.getWrapper().wrapEnergyBlock(block), removestoredEnergy);
     }
 
     @Override
     public void resetStoredEnergyForBlock() {
-        EnergyStorageService.resetStoredEnergy(this);
+        EnergyProvider.resetStoredEnergyForBlock(BlockWrapperInstance.getWrapper().wrapEnergyBlock(block));
     }
 
     @Override
     public void removeStoredEnergyBlock() {
-        EnergyStorageService.removeStoredEnergyKey(this);
+        EnergyProvider.removeStoredEnergyBlock(BlockWrapperInstance.getWrapper().wrapEnergyBlock(block));
     }
 
     @Override
     public boolean hasStoredEnergyinBlock() {
-        return EnergyStorageService.hasStoredEnergy(this);
+        return EnergyProvider.hasStoredEnergyInBlock(BlockWrapperInstance.getWrapper().wrapEnergyBlock(block));
     }
 
     @Override
     public List<EnergyBlock> getBlocksWithStoredEnergyinChunk() {
-        return EnergyStorageService.getBlocksWithStoredEnergyInChunk(this.getChunk());
+        return EnergyProvider.getBlocksWithStoredEnergyInChunk(BlockWrapperInstance.getWrapper().wrapEnergyBlock(block).getChunk());
     }
 
     @Override
     public List<EnergyBlock> getAllLoadedBlocksWithStoredEnergyInWorld() {
-        return EnergyStorageService.getAllLoadedBlocksWithStoredEnergyInWorld(this.getWorld());
+        return EnergyProvider.getAllLoadedBlocksWithStoredEnergyInWorld(BlockWrapperInstance.getWrapper().wrapEnergyBlock(block).getWorld());
     }
 
     @Override
     public void setEnergyBlockType(EnergyBlockTypes energyBlockType) {
-        EnergyStorageService.setEnergyBlockType(this, energyBlockType);
+        EnergyProvider.setEnergyBlockTypeToBlock(BlockWrapperInstance.getWrapper().wrapEnergyBlock(block), energyBlockType);
     }
 
     @Override
     public boolean hasEnergyBlockType(EnergyBlockTypes energyBlockTypes) {
-        return EnergyStorageService.hasEnergyBlockType(this, energyBlockTypes);
+        return EnergyProvider.EnergyBlockequalsEnergyBlockType(BlockWrapperInstance.getWrapper().wrapEnergyBlock(block), energyBlockTypes);
     }
 
 

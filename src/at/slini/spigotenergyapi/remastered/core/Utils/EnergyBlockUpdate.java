@@ -1,40 +1,28 @@
 package at.slini.spigotenergyapi.remastered.core.Utils;
 
+import at.slini.spigotenergyapi.remastered.api.BlockWrapperInstance;
 import at.slini.spigotenergyapi.remastered.api.Events.EnergyBlockUpdateEvent;
 import at.slini.spigotenergyapi.remastered.api.Interfaces.EnergyBlock;
-import at.slini.spigotenergyapi.remastered.core.Managers.EnergyStorageService;
+import at.slini.spigotenergyapi.remastered.core.SpigotEnergyAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitTask;
 
-/**
- * Periodically fires an {@link EnergyBlockUpdateEvent} for every loaded block that has stored energy.
- */
-public final class EnergyBlockUpdate {
-
+public class EnergyBlockUpdate {
     private final Plugin plugin;
-    private BukkitTask task;
-
+    BukkitTask testScheduler;
     public EnergyBlockUpdate(Plugin plugin) {
         this.plugin = plugin;
     }
 
-    public void start(int periodTicks) {
-        stop();
-        task = Bukkit.getScheduler().runTaskTimer(plugin, () -> {
+    public void update(int delay) {
+        testScheduler = Bukkit.getScheduler().runTaskTimer(plugin, () -> {
             for (World world : Bukkit.getWorlds()) {
-                for (EnergyBlock energyBlock : EnergyStorageService.getAllLoadedBlocksWithStoredEnergyInWorld(world)) {
+                for (EnergyBlock energyBlock : BlockWrapperInstance.getWrapper().wrapEnergyBlock(world.getBlockAt(0, 0, 0)).getAllLoadedBlocksWithStoredEnergyInWorld()) {
                     Bukkit.getPluginManager().callEvent(new EnergyBlockUpdateEvent(energyBlock));
                 }
             }
-        }, 0L, Math.max(1, periodTicks));
-    }
-
-    public void stop() {
-        if (task != null) {
-            task.cancel();
-            task = null;
-        }
+        },  0, delay);
     }
 }

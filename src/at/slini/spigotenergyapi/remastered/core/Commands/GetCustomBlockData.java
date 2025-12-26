@@ -21,8 +21,8 @@ public class GetCustomBlockData implements CommandExecutor {
         if (sender instanceof Player) {
             Player p = (Player) sender;
 
-            Block block = p.getTargetBlockExact(5);
-            if (block != null && block.getType() != Material.AIR) {
+            Block block = p.getTargetBlock(null, 3);
+            if (block.getType() != Material.AIR) {
                 PersistentDataContainer customBlockData = new CustomBlockData(block, SpigotEnergyAPI.getInstance());
 
                 Set<NamespacedKey> keys = customBlockData.getKeys();
@@ -35,7 +35,7 @@ public class GetCustomBlockData implements CommandExecutor {
                     p.sendMessage("No custom data found for this block.");
                 }
             } else {
-                p.sendMessage("No block in sight (or block is AIR). ");
+                p.sendMessage("No block in sight or block is AIR!");
             }
         } else {
             sender.sendMessage("You are not a player.");
