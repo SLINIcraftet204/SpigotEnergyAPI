@@ -3,6 +3,7 @@ package at.slini.spigotenergyapi.remastered.core;
 import at.slini.spigotenergyapi.remastered.api.BlockWrapperInstance;
 //import at.slini.spigotenergyapi.remastered.api.spigotenergyapi.Blocks.Managers.BlockWrapperManager;
 import at.slini.spigotenergyapi.remastered.core.Blocks.Managers.BlockWrapperManager;
+import at.slini.spigotenergyapi.remastered.core.Bootstrap.ExternalLibraryBootstrap;
 import at.slini.spigotenergyapi.remastered.core.Commands.GetCustomBlockData;
 import at.slini.spigotenergyapi.remastered.core.Listeners.BlockListener;
 import at.slini.spigotenergyapi.remastered.core.Managers.ModuleRegistry;
@@ -26,8 +27,25 @@ public final class SpigotEnergyAPI extends JavaPlugin {
     private ModuleRegistry moduleRegistry;
     private SteamNetworkEngine steamNetworkEngine;
 
+    /*@Override
+    public void onLoad() {
+        boolean ok = ExternalLibraryBootstrap.ensureCustomBlockData(this);
+        if (!ok) {
+            getLogger().severe("CustomBlockData could not be loaded. Plugin will be disabled on enable.");
+        }
+    }*/
+
     @Override
     public void onEnable() {
+        try {
+            Class.forName("com.jeff_media.customblockdata.CustomBlockData");
+            getLogger().info("CustomBlockData is available.");
+        } catch (ClassNotFoundException e) {
+            getLogger().severe("CustomBlockData is missing. If you're on Paper, use plugin.yml libraries: to load it.");
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
+
         instance = this;
 
         getCommand("getcustomblockdata").setExecutor(new GetCustomBlockData());
@@ -84,6 +102,10 @@ public final class SpigotEnergyAPI extends JavaPlugin {
     }
 
     public static SpigotEnergyAPI getInstance() {
+        return instance;
+    }
+
+    public static SpigotEnergyAPI corenstance() {
         return instance;
     }
 
