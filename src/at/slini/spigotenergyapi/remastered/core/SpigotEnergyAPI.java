@@ -7,9 +7,7 @@ import at.slini.spigotenergyapi.remastered.core.Commands.GetCustomBlockData;
 import at.slini.spigotenergyapi.remastered.core.Listeners.BlockListener;
 import at.slini.spigotenergyapi.remastered.core.Managers.ModuleRegistry;
 import at.slini.spigotenergyapi.remastered.core.Network.SteamNetworkEngine;
-import at.slini.spigotenergyapi.remastered.core.Utils.ConfigUtil;
 import at.slini.spigotenergyapi.remastered.core.Utils.EnergyBlockUpdate;
-import at.slini.spigotenergyapi.remastered.core.Utils.SConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -19,7 +17,6 @@ public final class SpigotEnergyAPI extends JavaPlugin {
     private static SpigotEnergyAPI instance;
 
     public static FileConfiguration configtemp;
-    public static SConfig RegistertsBlockIds;
 
     public static String prefix;
 
@@ -53,7 +50,6 @@ public final class SpigotEnergyAPI extends JavaPlugin {
         }
 
         configtemp = getConfig();
-        RegistertsBlockIds = ConfigUtil.getConfig("RegistertsBlockIds");
 
         prefix = configtemp.getString("prefix");
 
