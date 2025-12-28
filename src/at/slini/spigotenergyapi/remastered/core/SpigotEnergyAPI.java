@@ -49,6 +49,7 @@ public final class SpigotEnergyAPI extends JavaPlugin {
             getDataFolder().mkdirs();
         }
 
+        saveDefaultConfig();
         configtemp = getConfig();
 
         prefix = configtemp.getString("prefix");
