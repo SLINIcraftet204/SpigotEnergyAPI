@@ -1,0 +1,13 @@
+# The plugin prefix
+prefix: "§eSpigotEnergy§7: §r"
+
+# The energy prefix (Deprecated)
+energy-prefix: "SE"
+
+# Update frequency in ticks (Deprecated)
+update-frequency: 10
+
+# Steam transfer settings (Up to date)
+steam_transfer_enabled: true
+network_tick_period: 5
+steam_pathfinder_max_nodes: 5000
