@@ -6,7 +6,7 @@ import at.slini.spigotenergyapi.remastered.core.SpigotEnergyAPI;
 public class EnergyProviderManager implements EnergyProvider {
     @Override
     public String getEnergyPrefix() {
-        return SpigotEnergyAPI.config.getString("energyprefix");
+        return SpigotEnergyAPI.configtemp.getString("energy-prefix");
     }
 
 }

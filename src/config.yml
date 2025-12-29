@@ -1,0 +1,16 @@
+# The plugin prefix
+prefix: "§eSpigotEnergy§7: §r"
+
+# The energy prefix (Deprecated)
+energy-prefix: "SE"
+
+# Update frequency in ticks (Deprecated)
+update-frequency: 10
+
+# Steam transfer settings (Up to date)
+# Is steam transfer enabled?
+steam_transfer_enabled: true
+# The network tick period
+network_tick_period: 5
+# The maximum number of nodes a pathfinder can visit (If it too much a player can crash the server.)
+steam_pathfinder_max_nodes: 5000
