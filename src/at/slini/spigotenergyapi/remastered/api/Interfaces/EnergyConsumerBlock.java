@@ -1,6 +1,6 @@
 package at.slini.spigotenergyapi.remastered.api.Interfaces;
 
 public interface EnergyConsumerBlock extends EnergyBlock {
-    void setusageEnergypersecond(double useenergypersecond);
-    void ToggleEnergyConsume(Boolean state);
+    void setUsageEnergyPerSecond(double useenergypersecond);
+    void toggleEnergyConsume(Boolean state);
 }

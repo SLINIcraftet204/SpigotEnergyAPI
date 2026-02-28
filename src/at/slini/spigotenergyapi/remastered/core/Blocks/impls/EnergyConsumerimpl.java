@@ -32,12 +32,12 @@ public class EnergyConsumerimpl implements EnergyConsumerBlock {
 
     //--------------------------------------------Consumer Block-----------------------------------------
     @Override
-    public void setusageEnergypersecond(double useenergypersecond) {
+    public void setUsageEnergyPerSecond(double useEnergyPerSecond) {
 
     }
 
     @Override
-    public void ToggleEnergyConsume(Boolean state) {
+    public void toggleEnergyConsume(Boolean state) {
 
     }
     //--------------------------------------------EnergyBlock--------------------------------------------
@@ -52,18 +52,18 @@ public class EnergyConsumerimpl implements EnergyConsumerBlock {
     }
 
     @Override
-    public void setStoredEnergyForBlock(double setstoredEnergy) {
-        EnergyProvider.setStoredEnergyForBlock(BlockWrapperInstance.getWrapper().wrapEnergyBlock(block), setstoredEnergy);
+    public void setStoredEnergyForBlock(double setStoredEnergy) {
+        EnergyProvider.setStoredEnergyForBlock(BlockWrapperInstance.getWrapper().wrapEnergyBlock(block), setStoredEnergy);
     }
 
     @Override
-    public void addStoredEnergyForBlock(double addstoredEnergy) {
-        EnergyProvider.addStoredEnergyForBlock(BlockWrapperInstance.getWrapper().wrapEnergyBlock(block), addstoredEnergy);
+    public void addStoredEnergyForBlock(double addStoredEnergy) {
+        EnergyProvider.addStoredEnergyForBlock(BlockWrapperInstance.getWrapper().wrapEnergyBlock(block), addStoredEnergy);
     }
 
     @Override
-    public void removeStoredEnergyForBlock(double removestoredEnergy) {
-        EnergyProvider.removeStoredEnergyForBlock(BlockWrapperInstance.getWrapper().wrapEnergyBlock(block), removestoredEnergy);
+    public void removeStoredEnergyForBlock(double removeStoredEnergy) {
+        EnergyProvider.removeStoredEnergyForBlock(BlockWrapperInstance.getWrapper().wrapEnergyBlock(block), removeStoredEnergy);
     }
 
     @Override

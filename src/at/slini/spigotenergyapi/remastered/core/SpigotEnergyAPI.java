@@ -86,10 +86,6 @@ public final class SpigotEnergyAPI extends JavaPlugin {
         return instance;
     }
 
-    public static SpigotEnergyAPI corenstance() {
-        return instance;
-    }
-
     public ModuleRegistry getModuleRegistry() {
         return moduleRegistry;
     }

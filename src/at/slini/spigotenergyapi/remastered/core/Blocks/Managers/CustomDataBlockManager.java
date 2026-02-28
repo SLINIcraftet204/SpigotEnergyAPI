@@ -7,7 +7,7 @@ import org.bukkit.block.Block;
 
 public abstract class CustomDataBlockManager implements CustomDataBlock {
 
-    public void setDoubleToCustomDataBlock(Block block, NamespacedKey namespacedKey, double ouble){
+    public void setDoubleToCustomDataBlock(Block block, NamespacedKey namespacedKey, double value){
 
     }
 }
